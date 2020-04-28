@@ -1,10 +1,10 @@
 ﻿const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
-const cookieParser = require("cookie-parser");	
+const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
-const indexRouter = require("./routes/index");
+const indexRouter = require("./api/routes/index");
 
 const app = express();
 
@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 });
 
 // TODO Web Template Studio: Add your own error handler here.
-if (process.env.NODE_ENV === "production") {
+if (app.settings.env === "production") {
   // Do not send stack trace of error message when in production
   app.use((err, req, res, next) => {
     res.status(err.status || 500);
