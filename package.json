@@ -14,16 +14,16 @@
     "@angular/router": "9.0.2",
     "@ng-bootstrap/ng-bootstrap": "5.1.4",
     "bootstrap": "4.4.1",
-    "rxjs": "6.5.4",
-    "tslib": "1.10.0",
-    "zone.js": "0.10.2",
-    "core-js": "3.4.8",
-    "fs-extra": "8.1.0",
     "cookie-parser": "1.4.4",
+    "core-js": "3.4.8",
     "debug": "4.1.1",
     "express": "4.17.1",
+    "fs-extra": "8.1.0",
     "http-errors": "1.7.3",
-    "morgan": "1.9.1"
+    "morgan": "1.9.1",
+    "rxjs": "6.5.4",
+    "tslib": "1.10.0",
+    "zone.js": "0.10.2"
   },
   "devDependencies": {
     "concurrently": "5.0.2",

@@ -4,6 +4,24 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
+const mongoose = require("mongoose");
+
+require("dotenv").config();
+
+var db = process.env.DB;
+
+var dbOptions = {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: false,
+  useCreateIndex: true,
+};
+
+mongoose
+  .connect(db, dbOptions)
+  .then(() => console.log("MongoDB is running and connected"))
+  .catch((err) => console.log(err));
+
 const indexRouter = require("./api/routes/index");
 
 const app = express();
@@ -12,7 +30,8 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.resolve(__dirname, "build")));
+// app.use(express.static(path.resolve(__dirname, "build")));
+app.use(express.static(__dirname + "/dist/"));
 
 app.use("/api", indexRouter);
 app.get("*", (req, res) => {
